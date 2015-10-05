@@ -46,7 +46,7 @@
 
   $(function() {
     var f;
-    f = './output/2015-10-05.daily.json';
+    f = './json/2015-10-05.daily.json';
     return $.get(f, function(data) {
       return render_page(data);
     });

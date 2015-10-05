@@ -58,6 +58,6 @@ render_page = (data) ->
   $('.content tbody').prepend tophr
 
 $ () ->
-  f = './output/2015-10-05.daily.json'
+  f = './json/2015-10-05.daily.json'
   $.get f, (data)->
     render_page data
