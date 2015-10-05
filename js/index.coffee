@@ -63,12 +63,14 @@ routing = () ->
 
   get_page = (url) ->
     $.get url, (data) ->
+      data = JSON.parse data
       render_page data
 
   #default routing: use the top one
   unless hash?.length
     index = './json/index.json'
     $.get index, (data)->
+      data = JSON.parse data
       get_page(data[0])
 
   url_pattern = ///\d{4}-\d{2}-\d{2}\.(?:daily|weekly)///

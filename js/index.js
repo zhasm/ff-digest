@@ -43,12 +43,14 @@
     hash = window.location.hash;
     get_page = function(url) {
       return $.get(url, function(data) {
+        data = JSON.parse(data);
         return render_page(data);
       });
     };
     if (!(hash != null ? hash.length : void 0)) {
       index = './json/index.json';
       $.get(index, function(data) {
+        data = JSON.parse(data);
         return get_page(data[0]);
       });
     }
