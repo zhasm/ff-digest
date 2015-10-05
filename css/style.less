@@ -1,0 +1,228 @@
+// out: style.css, sourcemap: true, compress: true
+
+// Color variables (appears count calculates by raw css)
+@color0: #1f8dd6; // Appears 4 times
+@color1: #aecfe5; // Appears 2 times
+@color2: #2d3e50; // Appears 2 times
+
+// Width variables (appears count calculates by raw css)
+@width0: 100%; // Appears 4 times
+
+// Height variables (appears count calculates by raw css)
+@height1: 50%; // Appears 2 times
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	color: #7f8c8d;
+	font-size: 13px;
+	line-height: 1.7em;
+}
+h1, h2, h3, h4, h5, h6, label  {
+	color: #34495e;
+}
+.pure-img-responsive {
+	height: auto;
+	max-width: @width0;
+}
+.l-box {
+	padding: 1em;
+}
+.l-box-lrg {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	border: none;
+	padding: 2em;
+}
+.is-center {
+	text-align: center;
+}
+.pure-form {
+	label {
+		font-size: 100%;
+		font-weight: bold;
+		margin: 1em 0 0;
+	}
+	input[type] {
+		border: 2px solid #dddddd;
+		box-shadow: none;
+		font-size: 100%;
+		margin-bottom: 1em;
+		width: @width0;
+		max-width: 480px;
+	}
+}
+.pure-button {
+	background-color: @color0;
+	border-radius: 5px;
+	color: white;
+	padding: 0.5em 2em;
+}
+a.pure-button-primary {
+	background: white;
+	border-radius: 5px;
+	color: @color0;
+	font-size: 120%;
+}
+.home-menu {
+	background: @color2;
+	box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+	padding: 0.5em;
+	text-align: center;
+	text-align: left;
+	.pure-menu-heading {
+		color: white;
+		font-size: 120%;
+		font-weight: 400;
+	}
+	.pure-menu-link:visited{
+		color: #6FBEF3;
+	}
+	.pure-menu-selected {
+		a {
+			color: white;
+		}
+	}
+	a {
+		color: #6FBEF3;
+
+	}
+	li {
+		a {
+			&:hover {
+				background: none;
+				border: none;
+				color: @color1;
+			}
+			&:focus {
+				background: none;
+				border: none;
+				color: @color1;
+			}
+		}
+	}
+	ul {
+		float: right;
+	}
+}
+.pure-menu.pure-menu-fixed {
+	border-bottom: none;
+	z-index: 4;
+}
+.content-wrapper {
+	background: white;
+	min-height: 12%;
+	z-index: 2;
+	padding-top: 36px;
+	padding-left: 0px;
+	padding-right: 0px;
+	.content{
+
+		table{
+			// @media screen and (min-width: 35.5em){
+			// 	max-width: 480px;
+			// }
+
+			@media screen and (min-width: 64em){
+				max-width: 480px;
+			}
+
+    	margin-left: auto;
+    	margin-right: auto;
+
+			td, th{
+				padding-left: 10px;
+    		padding-right: 10px;
+			}
+
+			#top-hr {
+				border-top: 1px dashed #DDDDDD;
+				margin: 0px;
+				padding: 0px 25px 25px;
+			}
+
+		  .item{
+				word-break: break-all;
+				min-height:50px;
+				overflow:hidden;
+				position:relative;
+				z-index:0;
+				padding:9px 0px 12px 0px;
+				border-bottom:1px dashed #DDD;
+				font-size:14px;
+				overflow:hidden;
+				overflow-x:hidden;
+				-o-text-overflow:ellipsis;
+				text-align:-webkit-match-parent;
+				margin:0;
+
+				div.text-outer{
+					display:block;
+					padding-left:64px;
+					.text{
+						word-break: break-all;
+						word-wrap: break-word;
+						text-overflow: ellipsis;
+						color: #000 !important;
+						line-height:1.5em
+						a{
+							float: left;
+							margin-right: .3em;
+							color:#2B0132 !important;
+						}
+					}
+					.signature{
+						display: block;
+						margin-top: 3px;
+						color: #999;
+						font-size: 12px;
+						_zoom: 1;
+						.date{
+							border-bottom: 1px dotted #999; color: #999; text-decoration: none; line-height: 1em; outline: none;
+						}
+						.fav{
+							padding-left: 5px;
+						}
+					}
+				}
+
+				div.avatar{
+					display: block;
+					width: 48px;
+					height: 48px;
+					float: left;
+					padding-top:3px;
+					img{
+						-webkit-border-radius: 6px;
+						-moz-border-radius: 6px;
+						border-radius: 6px;
+						border: 0px;
+					}
+				}
+		  }
+		}
+	}
+}
+.content-head {
+	font-weight: 400;
+	letter-spacing: 0.1em;
+	margin: 2em 0 1em;
+	text-transform: uppercase;
+}
+.content-head-ribbon {
+	color: white;
+}
+.content-subhead {
+	color: @color0;
+	i {
+		margin-right: 7px;
+	}
+}
+.footer {
+	background: #111111;
+}
+.content {
+	padding: 1em;
+}
