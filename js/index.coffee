@@ -114,7 +114,10 @@ click = ->
         url = target.attr 'href'
         window.location.hash = url.replace('./json/', '#').replace('.json', '')
         get_page url
-
+  $('#history').bind('touchstart click', ->
+    $('#history').click()
+  )
+  
 routing = () ->
   hash = window.location.hash
 
