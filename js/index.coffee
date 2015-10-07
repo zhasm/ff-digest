@@ -137,7 +137,7 @@ routing = () ->
     get_page url
 
 initFastClick = () ->
-  FastClick.attach document.body;
+  FastClick.attach document.body
 
 $ () ->
   initFastClick()
