@@ -58,20 +58,74 @@ render_page = (data) ->
   $('.content tbody').prepend items
   $('.content tbody').prepend tophr
 
+get_page = (url) ->
+  $.get url, (data) ->
+    unless typeof(data) is 'object'
+      data = JSON.parse data
+    render_page data
+
+click = ->
+
+  tophr = '''<tr>
+    <td id="top-hr"></td>
+  </tr>'''
+
+  shifts =
+    daily: '每日'
+    weekly: '每周'
+    hourly: '实时'
+
+  $('#history').click ->
+    index = './json/index.json'
+
+    $.get index, (data)->
+      if typeof(data) is 'string'
+        data = JSON.parse data
+      unless typeof(data) is 'object' and typeof(data[0]) is 'string' and data[0].length
+        "error here"
+        return
+
+      title = "往期精彩回顾"
+      $('.content h2').html title
+      $('.content table tbody').html ''
+      ret = []
+      for url in data
+        pattern = ///(\d{4}-\d{2}-\d{2})\.(daily|weekly)///
+        match = url.match pattern
+        unless match
+          return
+        [date, shift] = match[1..2]
+
+        tpl = """
+        <tr>
+          <td>
+          <a class="ajax-nav" href="#{url}">
+          #{date} #{shifts[shift]}精选
+          </a>
+          </td>
+        </tr>
+          """
+        ret.push tpl
+
+      $('.content table tbody').html ret
+      $('.ajax-nav').click (e)->
+        e.preventDefault()
+        target = $(@)
+        url = target.attr 'href'
+        window.location.hash = url.replace('./json/', '#').replace('.json', '')
+        get_page url
+
 routing = () ->
   hash = window.location.hash
 
-  get_page = (url) ->
-    $.get url, (data) ->
-      data = JSON.parse data
-      render_page data
-
-  #default routing: use the top one
   unless hash?.length
     index = './json/index.json'
+
     $.get index, (data)->
-      data = JSON.parse data
-      get_page(data[0])
+      if typeof(data) is 'string'
+        data = JSON.parse data
+      if typeof(data) is 'object' and typeof(data[0]) is 'string' and data[0].length
+        get_page data[0]
 
   url_pattern = ///\d{4}-\d{2}-\d{2}\.(?:daily|weekly)///
   if hash.match url_pattern
@@ -81,3 +135,4 @@ routing = () ->
 
 $ () ->
   routing()
+  click()
