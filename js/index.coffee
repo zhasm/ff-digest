@@ -117,7 +117,7 @@ click = ->
   $('#history').bind('touchstart click', ->
     $('#history').click()
   )
-  
+
 routing = () ->
   hash = window.location.hash
 
@@ -136,6 +136,10 @@ routing = () ->
     url = "./json/#{fn}.json"
     get_page url
 
+initFastClick = () ->
+  FastClick.attach document.body
+
 $ () ->
+  initFastClick()
   routing()
   click()
